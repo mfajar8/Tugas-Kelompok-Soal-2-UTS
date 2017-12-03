@@ -52,8 +52,8 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ccKecil" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ccBesar" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -98,13 +98,13 @@
                   <Component id="jKTP" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtKTP" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jHanduk" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ccKecil" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jNama" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNama" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ccBesar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -172,6 +172,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtKTPActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNama">
       <Properties>
@@ -229,12 +232,12 @@
         <Property name="text" type="java.lang.String" value="Paket Fitness"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+    <Component class="javax.swing.JCheckBox" name="ccKecil">
       <Properties>
         <Property name="text" type="java.lang.String" value="Kecil"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+    <Component class="javax.swing.JCheckBox" name="ccBesar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Besar"/>
       </Properties>
@@ -267,6 +270,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Simpan"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSimpanActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>

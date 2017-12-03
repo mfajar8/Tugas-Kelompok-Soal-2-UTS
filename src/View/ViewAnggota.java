@@ -7,6 +7,7 @@ package View;
 
 import Model.AnggotaGym;
 
+
 /**
  *
  * @author LENOVO
@@ -44,8 +45,8 @@ public class ViewAnggota extends javax.swing.JFrame {
         jOutput = new javax.swing.JLabel();
         jHanduk = new javax.swing.JLabel();
         jPaket = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        ccKecil = new javax.swing.JCheckBox();
+        ccBesar = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         listPaket = new javax.swing.JList<>();
         btnSimpan = new javax.swing.JButton();
@@ -67,6 +68,11 @@ public class ViewAnggota extends javax.swing.JFrame {
         jNama.setText("Nama");
 
         txtKTP.setText(" ");
+        txtKTP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtKTPActionPerformed(evt);
+            }
+        });
 
         txtNama.setText(" ");
 
@@ -86,9 +92,9 @@ public class ViewAnggota extends javax.swing.JFrame {
 
         jPaket.setText("Paket Fitness");
 
-        jCheckBox1.setText("Kecil");
+        ccKecil.setText("Kecil");
 
-        jCheckBox2.setText("Besar");
+        ccBesar.setText("Besar");
 
         listPaket.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Reguler", "Mahasiswa", "Private", "Premium" };
@@ -98,6 +104,11 @@ public class ViewAnggota extends javax.swing.JFrame {
         jScrollPane1.setViewportView(listPaket);
 
         btnSimpan.setText("Simpan");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimpanActionPerformed(evt);
+            }
+        });
 
         txtHasil.setBackground(new java.awt.Color(204, 204, 204));
         txtHasil.setColumns(20);
@@ -136,8 +147,8 @@ public class ViewAnggota extends javax.swing.JFrame {
                                                 .addComponent(jHanduk)))
                                         .addGap(46, 46, 46)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBox1)
-                                            .addComponent(jCheckBox2)))
+                                            .addComponent(ccKecil)
+                                            .addComponent(ccBesar)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
@@ -169,12 +180,12 @@ public class ViewAnggota extends javax.swing.JFrame {
                     .addComponent(jKTP)
                     .addComponent(txtKTP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jHanduk)
-                    .addComponent(jCheckBox1))
+                    .addComponent(ccKecil))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jNama)
                     .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox2))
+                    .addComponent(ccBesar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -203,6 +214,67 @@ public class ViewAnggota extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtKTPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKTPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtKTPActionPerformed
+
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+    AnggotaGym A = new AnggotaGym();
+    
+    String jenkel="";
+    String handuk="";
+    int biaya=0;
+    String paket=listPaket.getSelectedValue();
+    
+    A.setNama(txtNama.getText());
+    A.setNoKTP(txtKTP.getText());
+    A.setKelamin(jenkel);
+    A.setCabang(cbCabang.getSelectedItem().toString());
+    A.setHanduk(handuk);
+    A.setPaket(paket);
+    
+    if (ccKecil.isSelected()){
+        handuk +="kecil";
+    }
+    if (ccBesar.isSelected()){
+        handuk +="besar";
+    }
+    
+    
+    if (radioMale.isSelected()) {
+            jenkel = "Male";
+        } else if (radioFemale.isSelected()) {
+            jenkel = "Female";
+        }
+    
+    switch (paket) {
+            case "Reguler":
+                biaya = 450000;
+                break;
+            case "Mahasiswa":
+                biaya = 300000;
+                break;
+            case "Private":
+                biaya = 750000;
+                break;
+            case "Premium":
+                biaya = 1000000;
+                break;
+            default:
+                break;
+        }
+    
+    
+    
+    txtHasil.setText("Nama = "+A.getNama()+"\n"+"No. Ktp = "+A.getNoKTP()+"\n"+"Jenis Kelamin = "+jenkel
+    +"\n"+"Cabang = "+A.getCabang()+"\n"+"jenis Handuk = "+handuk+"\n"+"Paket Fitness = "+A.getPaket()
+            +"\n"+"BIAYA PENDAFTARAN = "+biaya);
+            
+    
+    
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSimpanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,9 +314,9 @@ public class ViewAnggota extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSimpan;
     private javax.swing.JComboBox<String> cbCabang;
+    private javax.swing.JCheckBox ccBesar;
+    private javax.swing.JCheckBox ccKecil;
     private javax.swing.JLabel jCabang;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jHanduk;
     private javax.swing.JLabel jJudul1;
     private javax.swing.JLabel jJudul2;
@@ -264,4 +336,10 @@ public class ViewAnggota extends javax.swing.JFrame {
     private javax.swing.JTextField txtKTP;
     private javax.swing.JTextField txtNama;
     // End of variables declaration//GEN-END:variables
+
+    private static class Male {
+
+        public Male() {
+        }
+    }
 }
